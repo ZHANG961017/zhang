@@ -6,6 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import bwie.com.myshop.R;
 
@@ -14,6 +19,8 @@ import bwie.com.myshop.R;
  */
 
 public class HomeFragment extends Fragment {
+
+    private ListView lv;
 
     @Nullable
     @Override

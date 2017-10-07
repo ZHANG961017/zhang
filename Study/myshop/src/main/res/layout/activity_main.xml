@@ -15,24 +15,32 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#AAAAAA"/>
         <RadioGroup
             android:id="@+id/rg_touch"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/bt_home"
                 android:padding="3dp"
+                android:checked="true"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/home"
+                android:drawableTop="@drawable/home_icn"
                 android:text="首页"
-                android:textColor="#AAAAAA"
+                android:textColor="@drawable/textcolor"
                 android:button="@null"/>
             <RadioButton
                 android:id="@+id/bt_wt"
@@ -42,8 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="微淘"
-                android:drawableTop="@mipmap/wt"
-                android:textColor="#AAAAAA"
+                android:drawableTop="@drawable/wt_icon"
+                android:textColor="@drawable/textcolor"
                 android:button="@null"/>
             <RadioButton
                 android:id="@+id/bt_mag"
@@ -53,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="消息"
-                android:textColor="#AAAAAA"
-                android:drawableTop="@mipmap/message"
+                android:textColor="@drawable/textcolor"
+                android:drawableTop="@drawable/msg_icn"
                 android:button="@null"/>
             <RadioButton
                 android:id="@+id/bt_shop"
@@ -64,8 +72,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="购物车"
-                android:drawableTop="@mipmap/shopcar"
-                android:textColor="#AAAAAA"
+                android:drawableTop="@drawable/shop_icon"
+                android:textColor="@drawable/textcolor"
                 android:button="@null"/>
             <RadioButton
                 android:id="@+id/bt_my"
@@ -75,8 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="我的"
-                android:drawableTop="@mipmap/my"
-                android:textColor="#AAAAAA"
+                android:drawableTop="@drawable/my_icon"
+                android:textColor="@drawable/textcolor"
                 android:button="@null"/>
         </RadioGroup>
     </LinearLayout>
