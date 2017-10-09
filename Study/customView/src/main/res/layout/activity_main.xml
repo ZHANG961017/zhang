@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="bwie.com.customview.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <bwie.com.customview.MyCustomView
+            android:id="@+id/tasks_view"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            app:circleColor="@color/white"
+            app:radius="50dip"
+            app:ringBgColor="@color/white2"
+            app:ringColor="@color/colorRed"
+            app:strokeWidth="10dip" />
+    </LinearLayout>
+
+    <Button
+        android:onClick="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始"/>
+    <Button
+        android:onClick="reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重置"/>
+</LinearLayout>
