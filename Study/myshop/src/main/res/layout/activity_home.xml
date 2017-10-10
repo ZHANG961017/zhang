@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bwie.com.myshop.HomeActivity">
+    tools:context="bwie.com.myshop.activity.HomeActivity">
 
     <ImageView
         android:id="@+id/iamge_Home"

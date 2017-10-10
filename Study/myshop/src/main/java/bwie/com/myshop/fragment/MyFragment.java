@@ -14,10 +14,12 @@ import bwie.com.myshop.R;
  */
 
 public class MyFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.my_fragment, container, false);
         return view;
+
     }
 }
