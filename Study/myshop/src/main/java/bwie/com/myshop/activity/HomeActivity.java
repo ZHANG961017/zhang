@@ -1,10 +1,10 @@
-package bwie.com.myshop;
+package bwie.com.myshop.activity;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import bwie.com.myshop.R;
 
 public class HomeActivity extends BaseActivity {
 

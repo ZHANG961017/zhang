@@ -1,15 +1,12 @@
-package bwie.com.myshop;
+package bwie.com.myshop.activity;
 
-import android.app.ActionBar;
 import android.support.annotation.IdRes;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import bwie.com.myshop.R;
+import bwie.com.myshop.activity.BaseActivity;
 import bwie.com.myshop.fragment.HomeFragment;
 import bwie.com.myshop.fragment.MsgFragment;
 import bwie.com.myshop.fragment.MyFragment;

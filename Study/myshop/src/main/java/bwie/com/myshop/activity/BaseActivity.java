@@ -1,8 +1,10 @@
-package bwie.com.myshop;
+package bwie.com.myshop.activity;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import bwie.com.myshop.R;
 
 public class BaseActivity extends AppCompatActivity {
 
