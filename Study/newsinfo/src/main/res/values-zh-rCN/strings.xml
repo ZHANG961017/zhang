@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">今日头条</string>
+    <string name="openDrawer">打开</string>
+    <string name="closeDrawer">关闭</string>
+    <string name="opening_wechat">打开微信</string>
+    <string name="opening_qq">打开QQ</string>
+    <string name="opening_blog">打开新浪</string>
+</resources>
