@@ -7,4 +7,38 @@
     android:layout_height="match_parent"
     tools:context="bwie.com.myshop.activity.RegisterActivity">
 
+    <EditText
+        android:id="@+id/rg_name"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"/>
+    <EditText
+        android:layout_below="@id/rg_name"
+        android:id="@+id/rg_pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码"/>
+    <EditText
+        android:layout_below="@id/rg_pwd"
+        android:id="@+id/rgPwdCfm"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请确认密码"/>
+    <EditText
+        android:layout_below="@id/rgPwdCfm"
+        android:id="@+id/rg_Email"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入邮箱"/>
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rg_Email"
+        android:id="@+id/bt_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册"/>
 </RelativeLayout>
