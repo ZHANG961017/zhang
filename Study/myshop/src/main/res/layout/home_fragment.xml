@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:orientation="horizontal"
-        android:background="#ff6000">
+        android:background="@drawable/shape_color">
 
         <TextView
             android:id="@+id/scan"

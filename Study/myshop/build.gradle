@@ -14,8 +14,19 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+    signingConfigs {
+        release {//C:\Users\vcc\keystore.jks
+            storeFile file("F:\\GitHub\\zhang\\Study\\myshop\\keystore.jks")//keystore的路径
+            storePassword "961203"
+            keyAlias "zhang"
+            keyPassword "961203"
+        }
+        debug {
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
