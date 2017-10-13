@@ -4,15 +4,26 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import bwie.com.myshop.view.RegisterListener;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import bwie.com.myshop.bean.RegRequestBean;
+import bwie.com.myshop.mvp.view.RegisterListener;
+import bwie.com.myshop.utils.OptionUtil;
+import bwie.com.myshop.utils.okhttp.GsonObjectCallback;
+import bwie.com.myshop.utils.okhttp.OkHttp3Utils;
+import okhttp3.Call;
+
 
 /**
  * Created by 13435 on 2017/10/11.
  */
 
 public class RegisterImpl implements RegisterModel {
+
     @Override
-    public void register(Context ctx, String name, String pwd, String pwdCfm, String email, RegisterListener listener) {
+    public void register(final Context ctx, String name, String pwd, String pwdCfm, String email, final RegisterListener listener) {
 
         if(TextUtils.isEmpty(name)){
             listener.OnNameError();
@@ -39,7 +50,29 @@ public class RegisterImpl implements RegisterModel {
             listener.OnEmailError();
             return;
         }
-        listener.OnSuccess();
+        Map<String,String> parameter = new HashMap<String,String>();
+        parameter.put("username",name);
+        parameter.put("password",pwd);
+        parameter.put("password_confirm",pwdCfm);
+        parameter.put("email",email);
+        parameter.put("client",OptionUtil.CLIENT);
+        OkHttp3Utils.doPost(OptionUtil.REGISTER, parameter, new GsonObjectCallback<RegRequestBean>() {
+
+            @Override
+            public void onUi(RegRequestBean regRequestBean) {
+                if(regRequestBean.getCode()==200){
+                    listener.OnSuccess();
+                    Toast.makeText(ctx, "注册成功", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailed(Call call, IOException e) {
+
+                Toast.makeText(ctx, "注册失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 }

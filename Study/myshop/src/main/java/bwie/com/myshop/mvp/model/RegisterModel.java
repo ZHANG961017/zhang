@@ -2,7 +2,8 @@ package bwie.com.myshop.mvp.model;
 
 import android.content.Context;
 
-import bwie.com.myshop.view.RegisterListener;
+import bwie.com.myshop.mvp.view.RegisterListener;
+
 
 /**
  * Created by 13435 on 2017/10/11.

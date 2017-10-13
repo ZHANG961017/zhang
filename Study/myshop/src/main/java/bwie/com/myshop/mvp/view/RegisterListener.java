@@ -11,4 +11,5 @@ public interface RegisterListener {
     void OnPwdCfmError();
     void OnEmailError();
     void OnSuccess();
+
 }

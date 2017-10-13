@@ -1,6 +1,6 @@
 package bwie.com.myshop.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,11 +8,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bwie.com.myshop.R;
-import bwie.com.myshop.presenter.RegisterPresenter;
-import bwie.com.myshop.presenter.RegisterPresenterImpl;
-import bwie.com.myshop.view.RegisterView;
+import bwie.com.myshop.mvp.presenter.RegisterPresenter;
+import bwie.com.myshop.mvp.presenter.RegisterPresenterImpl;
+import bwie.com.myshop.mvp.view.RegisterView;
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener,RegisterView{
+public class RegisterActivity extends BaseActivity implements View.OnClickListener,RegisterView {
 
     private EditText rg_name;
     private EditText rg_pwd;
@@ -67,6 +67,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void toMypage() {
-        Toast.makeText(this, "...", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(RegisterActivity.this, Login_register_Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        RegisterActivity.this.finish();
     }
 }

@@ -2,10 +2,11 @@ package bwie.com.myshop.mvp.presenter;
 
 import android.content.Context;
 
-import bwie.com.myshop.model.RegisterImpl;
-import bwie.com.myshop.model.RegisterModel;
-import bwie.com.myshop.view.RegisterListener;
-import bwie.com.myshop.view.RegisterView;
+import bwie.com.myshop.mvp.model.RegisterImpl;
+import bwie.com.myshop.mvp.model.RegisterModel;
+import bwie.com.myshop.mvp.view.RegisterListener;
+import bwie.com.myshop.mvp.view.RegisterView;
+
 
 /**
  * Created by 13435 on 2017/10/11.
@@ -58,6 +59,7 @@ public class RegisterPresenterImpl implements RegisterPresenter,RegisterListener
     @Override
     public void OnSuccess() {
         if(registerView != null){
+
             registerView.toMypage();
         }
     }

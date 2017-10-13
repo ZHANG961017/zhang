@@ -1,5 +1,6 @@
 package bwie.com.myshop.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.ActionBar;
@@ -15,6 +16,7 @@ public class Login_register_Activity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_register);
+
 
     }
 
