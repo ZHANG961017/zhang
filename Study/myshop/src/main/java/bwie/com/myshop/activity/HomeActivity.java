@@ -32,4 +32,8 @@ public class HomeActivity extends BaseActivity {
         //每隔一秒向handler发送消息
         handler.postDelayed(runnable,1000);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

@@ -73,4 +73,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         startActivity(intent);
         RegisterActivity.this.finish();
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

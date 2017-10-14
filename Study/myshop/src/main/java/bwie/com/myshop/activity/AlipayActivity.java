@@ -12,4 +12,8 @@ public class AlipayActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alipay);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

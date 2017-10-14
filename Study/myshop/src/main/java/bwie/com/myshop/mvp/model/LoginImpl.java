@@ -1,9 +1,9 @@
 package bwie.com.myshop.mvp.model;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -24,21 +24,21 @@ import okhttp3.Call;
 public class LoginImpl implements LoginModel {
 
     private int code;
+    public static Map<String, String> parameter;
 
     @Override
-    public void login(final Context ctx, String name, String pwd, final LoginLitener litener) {
-        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(pwd)){
+    public void login(final Context ctx, final String name, final String pwd, final LoginLitener litener) {
+        if(TextUtils.isEmpty(name)){
             litener.OnNameError();
             Toast.makeText(ctx, "用户名不能为空", Toast.LENGTH_SHORT).show();
             return;
         }
-       /* if(TextUtils.isEmpty(pwd)){
+       if(TextUtils.isEmpty(pwd)){
             litener.OnNameError();
             Toast.makeText(ctx, "密码不能为空", Toast.LENGTH_SHORT).show();
             return;
-        }*/
-        litener.OnPwdError();
-        Map<String,String> parameter = new HashMap<String,String>();
+        }
+        parameter = new HashMap<String,String>();
         parameter.put("username",name);
         parameter.put("password",pwd);
         parameter.put("client",OptionUtil.CLIENT);
@@ -48,6 +48,11 @@ public class LoginImpl implements LoginModel {
             public void onUi(RegRequestBean regRequestBean) {
                 code = regRequestBean.getCode();
                 if(code == 200){
+                    SharedPreferences instance = OptionUtil.getSharedPreferencesInstance(ctx);
+                    SharedPreferences.Editor edit = instance.edit();
+                    edit.putBoolean("verify",true);
+                    edit.putString("name",name);
+                    edit.commit();
                     litener.OnSuccess();
                     Toast.makeText(ctx, "登录成功", Toast.LENGTH_SHORT).show();
                 }else if(code == 400){

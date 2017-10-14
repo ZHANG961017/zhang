@@ -1,6 +1,7 @@
 package bwie.com.myshop.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,6 +13,7 @@ import bwie.com.myshop.R;
 import bwie.com.myshop.mvp.presenter.LoginPresenter;
 import bwie.com.myshop.mvp.presenter.LoginPresenterImpl;
 import bwie.com.myshop.mvp.view.LoginView;
+import bwie.com.myshop.utils.OptionUtil;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener,LoginView {
 
@@ -38,16 +40,26 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 et_name.getText().toString(),
                 et_pwd.getText().toString());
     }
+    /*
+     *监听返回按钮
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        LoginActivity.this.finish();
+    }
 
     @Override
     public void setNameError() {
-        login.setEnabled(Boolean.FALSE);
+        et_name.setError("username cannot be empty");
     }
 
     @Override
     public void setPwdError() {
-        //et_pwd.setError("password cannot be empty");
-        login.setEnabled(Boolean.TRUE);
+        et_pwd.setError("password cannot be empty");
     }
 
     @Override
@@ -64,4 +76,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         LoginActivity.this.finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

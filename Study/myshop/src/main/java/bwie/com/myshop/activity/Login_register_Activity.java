@@ -35,4 +35,19 @@ public class Login_register_Activity extends BaseActivity {
         Intent intent = new Intent(Login_register_Activity.this,AlipayActivity.class);
         startActivity(intent);
     }
+    /*
+ *监听返回按钮
+ */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Login_register_Activity.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        Login_register_Activity.this.finish();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

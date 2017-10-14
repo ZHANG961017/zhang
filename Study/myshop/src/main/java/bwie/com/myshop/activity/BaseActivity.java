@@ -16,4 +16,8 @@ public class BaseActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

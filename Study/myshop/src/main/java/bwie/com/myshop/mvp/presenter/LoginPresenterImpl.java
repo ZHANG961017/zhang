@@ -2,6 +2,7 @@ package bwie.com.myshop.mvp.presenter;
 
 import android.content.Context;
 
+import bwie.com.myshop.bean.RegRequestBean;
 import bwie.com.myshop.mvp.model.LoginImpl;
 import bwie.com.myshop.mvp.model.LoginModel;
 import bwie.com.myshop.mvp.view.LoginLitener;

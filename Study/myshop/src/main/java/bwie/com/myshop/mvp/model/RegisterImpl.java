@@ -1,6 +1,7 @@
 package bwie.com.myshop.mvp.model;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -10,6 +11,7 @@ import java.util.Map;
 
 import bwie.com.myshop.bean.RegRequestBean;
 import bwie.com.myshop.mvp.view.RegisterListener;
+import bwie.com.myshop.myapp.MyApp;
 import bwie.com.myshop.utils.OptionUtil;
 import bwie.com.myshop.utils.okhttp.GsonObjectCallback;
 import bwie.com.myshop.utils.okhttp.OkHttp3Utils;
@@ -50,6 +52,7 @@ public class RegisterImpl implements RegisterModel {
             listener.OnEmailError();
             return;
         }
+
         Map<String,String> parameter = new HashMap<String,String>();
         parameter.put("username",name);
         parameter.put("password",pwd);
@@ -61,6 +64,7 @@ public class RegisterImpl implements RegisterModel {
             @Override
             public void onUi(RegRequestBean regRequestBean) {
                 if(regRequestBean.getCode()==200){
+
                     listener.OnSuccess();
                     Toast.makeText(ctx, "注册成功", Toast.LENGTH_SHORT).show();
                 }

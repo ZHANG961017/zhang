@@ -8,5 +8,43 @@
         android:layout_height="55dp"
         android:orientation="horizontal"
         android:background="@drawable/shape_color">
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textSize="18sp"
+            android:background="@null"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"/>
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:background="@drawable/shape_color"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/user_icon"/>
+        <TextView
+            android:id="@+id/username"
+            android:layout_toRightOf="@id/iv_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:layout_marginLeft="5dp"
+            android:text="null"
+            android:background="@null"
+            android:textColor="#fff"/>
+
+    </RelativeLayout>
 </LinearLayout>
