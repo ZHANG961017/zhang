@@ -1,9 +1,7 @@
 package bwie.com.myshop.mvp.model;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -48,11 +46,6 @@ public class LoginImpl implements LoginModel {
             public void onUi(RegRequestBean regRequestBean) {
                 code = regRequestBean.getCode();
                 if(code == 200){
-                    SharedPreferences instance = OptionUtil.getSharedPreferencesInstance(ctx);
-                    SharedPreferences.Editor edit = instance.edit();
-                    edit.putBoolean("verify",true);
-                    edit.putString("name",name);
-                    edit.commit();
                     litener.OnSuccess();
                     Toast.makeText(ctx, "登录成功", Toast.LENGTH_SHORT).show();
                 }else if(code == 400){

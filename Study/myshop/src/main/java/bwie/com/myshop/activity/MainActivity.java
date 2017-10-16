@@ -36,10 +36,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private MsgFragment msgFragment;
     private ShopFragment shopFragment;
     private MyFragment myFragment;
-    LoginLitener litener;
-    private String username;
-    private String password;
-    private String client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,15 +112,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         .hide(shopFragment)
                         .hide(homeFragment)
                         .commit();
-
-                SharedPreferences instance = OptionUtil.getSharedPreferencesInstance(this);
-                boolean verify = instance.getBoolean("verify", false);
-                if(verify == false){
                     Intent intent = new Intent(this, Login_register_Activity.class);
                     startActivity(intent);
-                }else{
-
-                }
                 break;
             default:
                 break;

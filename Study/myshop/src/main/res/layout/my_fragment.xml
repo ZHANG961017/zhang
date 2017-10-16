@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:layout_marginLeft="5dp"
-            android:text="null"
+            android:text="游客"
             android:background="@null"
             android:textColor="#fff"/>
 

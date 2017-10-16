@@ -67,13 +67,15 @@ public class RegisterImpl implements RegisterModel {
 
                     listener.OnSuccess();
                     Toast.makeText(ctx, "注册成功", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    Toast.makeText(ctx, regRequestBean.getDatas().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailed(Call call, IOException e) {
 
-                Toast.makeText(ctx, "注册失败", Toast.LENGTH_SHORT).show();
             }
         });
 

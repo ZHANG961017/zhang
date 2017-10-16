@@ -32,14 +32,6 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         setting = view.findViewById(R.id.setting);
         //设置监听事件
         setting.setOnClickListener(this);
-        SharedPreferences instance = OptionUtil.getSharedPreferencesInstance(getActivity());
-        boolean verify = instance.getBoolean("verify", false);
-        if(verify == true){
-            String name = instance.getString("name", "");
-            username = view.findViewById(R.id.username);
-            username.setText(name);
-        }
-
         return view;
 
     }

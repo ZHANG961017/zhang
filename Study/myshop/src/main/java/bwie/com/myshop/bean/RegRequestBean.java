@@ -6,6 +6,7 @@ package bwie.com.myshop.bean;
 
 public class RegRequestBean {
 
+
     /**
      * code : 200
      * datas : {"username":"andro","userid":"8","key":"ce30718ab0d11dac3036b959350d4d53"}
@@ -63,6 +64,15 @@ public class RegRequestBean {
 
         public void setKey(String key) {
             this.key = key;
+        }
+
+        @Override
+        public String toString() {
+            return "DatasBean{" +
+                    "username='" + username + '\'' +
+                    ", userid='" + userid + '\'' +
+                    ", key='" + key + '\'' +
+                    '}';
         }
     }
 }
