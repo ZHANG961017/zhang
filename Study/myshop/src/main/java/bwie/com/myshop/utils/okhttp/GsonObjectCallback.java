@@ -1,7 +1,7 @@
 package bwie.com.myshop.utils.okhttp;
 
-import android.content.SharedPreferences;
 import android.os.Handler;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -44,6 +44,7 @@ public abstract class GsonObjectCallback<T> implements Callback {
     @Override
     public void onResponse(Call call, Response response) throws IOException {
         String json = response.body().string();
+        Log.i("qqqq",json);
         Class<T> cls = null;
 
         Class clz = this.getClass();

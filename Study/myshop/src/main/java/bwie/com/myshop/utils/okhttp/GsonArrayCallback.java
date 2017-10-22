@@ -69,7 +69,12 @@ public abstract class GsonArrayCallback<T> implements Callback {
                 @Override
                 public void run() {
                     onUi(mList);
+
+
+
                 }
             });
+
+
     }
 }

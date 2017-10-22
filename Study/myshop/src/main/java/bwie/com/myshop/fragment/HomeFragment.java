@@ -7,15 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
 
 import bwie.com.myshop.R;
+import bwie.com.myshop.activity.Goods_ParticularsActivity;
 
 /**
  * Created by 13435 on 2017/9/28.
@@ -24,14 +23,10 @@ import bwie.com.myshop.R;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private TextView scan;
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        //初始化组件
-        scan = getActivity().findViewById(R.id.scan);
-        scan.setOnClickListener(this);
-    }
+    private TextView search;
+    private int REQUEST_CODE;
+    private Intent intent;
+    private ImageButton acamera;
 
     @Nullable
     @Override
@@ -41,7 +36,34 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //初始化组件
+        scan = getActivity().findViewById(R.id.scan);
+        search = getActivity().findViewById(R.id.Search);
+        acamera = getActivity().findViewById(R.id.acamera);
+        acamera.setOnClickListener(this);
+        search.setOnClickListener(this);
+        scan.setOnClickListener(this);
+    }
+
+    @Override
     public void onClick(View view) {
-        Toast.makeText(getActivity(), "....", Toast.LENGTH_SHORT).show();
+        switch(view.getId()){
+            case R.id.scan:
+                intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+                Toast.makeText(getActivity(), "...", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.Search:
+                intent = new Intent(getActivity(), Goods_ParticularsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.acamera:
+                Toast.makeText(getActivity(), "...", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -1,19 +1,15 @@
 package bwie.com.myshop.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import bwie.com.myshop.R;
 import bwie.com.myshop.mvp.presenter.LoginPresenter;
 import bwie.com.myshop.mvp.presenter.LoginPresenterImpl;
 import bwie.com.myshop.mvp.view.LoginView;
-import bwie.com.myshop.utils.OptionUtil;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener,LoginView {
 

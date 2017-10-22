@@ -1,6 +1,7 @@
 package bwie.com.myshop.mvp.model;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import bwie.com.myshop.activity.BaseActivity;
 import bwie.com.myshop.bean.RegRequestBean;
 import bwie.com.myshop.mvp.view.LoginLitener;
 import bwie.com.myshop.utils.OptionUtil;
@@ -22,7 +24,6 @@ import okhttp3.Call;
 public class LoginImpl implements LoginModel {
 
     private int code;
-    public static Map<String, String> parameter;
 
     @Override
     public void login(final Context ctx, final String name, final String pwd, final LoginLitener litener) {
@@ -36,7 +37,7 @@ public class LoginImpl implements LoginModel {
             Toast.makeText(ctx, "密码不能为空", Toast.LENGTH_SHORT).show();
             return;
         }
-        parameter = new HashMap<String,String>();
+        Map<String, String> parameter  = new HashMap<String,String>();
         parameter.put("username",name);
         parameter.put("password",pwd);
         parameter.put("client",OptionUtil.CLIENT);
@@ -46,6 +47,16 @@ public class LoginImpl implements LoginModel {
             public void onUi(RegRequestBean regRequestBean) {
                 code = regRequestBean.getCode();
                 if(code == 200){
+                    String key = regRequestBean.getDatas().getKey();
+                    int userId = regRequestBean.getDatas().getUserid();
+                    String userName = regRequestBean.getDatas().getUsername();
+                    SharedPreferences instance = BaseActivity.getSharedPreferencesInstance(ctx);
+                    SharedPreferences.Editor edit = instance.edit();
+                    edit.putString("name",userName);
+                    edit.putString("key",key);
+                    edit.putInt("uID",userId);
+                    edit.putBoolean("flag",true);
+                    edit.commit();
                     litener.OnSuccess();
                     Toast.makeText(ctx, "登录成功", Toast.LENGTH_SHORT).show();
                 }else if(code == 400){

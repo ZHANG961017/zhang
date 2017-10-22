@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import java.io.File;
@@ -94,7 +96,7 @@ public class OkHttp3Utils {
                     .addInterceptor(httpLoggingInterceptor)
                     .addNetworkInterceptor(new CacheInterceptor())
                     .writeTimeout(20, TimeUnit.SECONDS).readTimeout(20, TimeUnit.SECONDS)
-                    .cache(new Cache(sdcache.getAbsoluteFile(), cacheSize))
+                    //  .cache(new Cache(sdcache.getAbsoluteFile(), cacheSize))
                     .build();
         }
         return okHttpClient;
@@ -163,13 +165,26 @@ public class OkHttp3Utils {
      * 参数1 url
      * 参数2 回调Callback
      */
-    public static void uploadPic(String url, File file, String fileName) {
+    public static void uploadPic(final Context context, String url, Map<String, Object> params) {
         //创建OkHttpClient请求对象
         OkHttpClient okHttpClient = getOkHttpClient();
-        //创建RequestBody 封装file参数
-        RequestBody fileBody = RequestBody.create(MediaType.parse("application/octet-stream"), file);
+        //创建MultipartBody.Builder 设置支持FORM
+        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            Object value = entry.getValue();
+            if (value instanceof File) {
+                File file = (File) value;
+
+                //创建RequestBody 封装file参数
+                builder.addFormDataPart(entry.getKey(), file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file));
+
+            } else {
+                builder.addFormDataPart(entry.getKey(), value.toString());
+            }
+        }
+
         //创建RequestBody 设置类型等
-        RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM).addFormDataPart("file", fileName, fileBody).build();
+        RequestBody requestBody = builder.build();
         //创建Request
         Request request = new Request.Builder().url(url).post(requestBody).build();
 
@@ -185,6 +200,9 @@ public class OkHttp3Utils {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 //上传成功回调 目前不需要处理
+                Looper.prepare();
+                Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }
         });
 

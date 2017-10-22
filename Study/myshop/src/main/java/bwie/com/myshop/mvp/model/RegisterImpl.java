@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import bwie.com.myshop.activity.BaseActivity;
 import bwie.com.myshop.bean.RegRequestBean;
 import bwie.com.myshop.mvp.view.RegisterListener;
 import bwie.com.myshop.myapp.MyApp;
@@ -52,7 +53,20 @@ public class RegisterImpl implements RegisterModel {
             listener.OnEmailError();
             return;
         }
-
+        if(BaseActivity.isSpecific_Symbol(ctx,name) == false){
+            return;
+        }
+        if(BaseActivity.isSpecific_Symbol(ctx,pwd) == false){
+            return;
+        }
+        if(name.length() < 5){
+            Toast.makeText(ctx, "用户名不能少于五位", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(pwd.length() < 6){
+            Toast.makeText(ctx, "密码不能少于6位", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Map<String,String> parameter = new HashMap<String,String>();
         parameter.put("username",name);
         parameter.put("password",pwd);

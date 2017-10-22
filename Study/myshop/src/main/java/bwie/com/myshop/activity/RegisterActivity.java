@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import bwie.com.myshop.R;
 import bwie.com.myshop.mvp.presenter.RegisterPresenter;

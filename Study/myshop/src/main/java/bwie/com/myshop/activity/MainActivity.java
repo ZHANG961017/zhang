@@ -1,6 +1,5 @@
 package bwie.com.myshop.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.IdRes;
@@ -9,24 +8,14 @@ import android.os.Bundle;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.Map;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import bwie.com.myshop.R;
-import bwie.com.myshop.activity.BaseActivity;
-import bwie.com.myshop.bean.RegRequestBean;
 import bwie.com.myshop.fragment.HomeFragment;
 import bwie.com.myshop.fragment.MsgFragment;
 import bwie.com.myshop.fragment.MyFragment;
 import bwie.com.myshop.fragment.ShopFragment;
 import bwie.com.myshop.fragment.WtFragment;
-import bwie.com.myshop.mvp.model.LoginImpl;
-import bwie.com.myshop.mvp.model.LoginModel;
-import bwie.com.myshop.mvp.view.LoginLitener;
-import bwie.com.myshop.utils.OptionUtil;
-import bwie.com.myshop.utils.okhttp.GsonObjectCallback;
-import bwie.com.myshop.utils.okhttp.OkHttp3Utils;
-import okhttp3.Call;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -112,12 +101,36 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         .hide(shopFragment)
                         .hide(homeFragment)
                         .commit();
+                SharedPreferences instance = BaseActivity.getSharedPreferencesInstance(this);
+                /*SharedPreferences.Editor edit = instance.edit();
+                edit.putBoolean("flag",false);
+                edit.commit();*/
+                boolean flag = instance.getBoolean("flag", false);
+                if(flag == false){
                     Intent intent = new Intent(this, Login_register_Activity.class);
                     startActivity(intent);
+                }
                 break;
             default:
                 break;
         }
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 5) {
+            if (null != data) {
+                Bundle bundle = data.getExtras();
+                if (bundle == null) {
+                    return;
+                }
+                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+                    String result = bundle.getString(CodeUtils.RESULT_STRING);
+                    Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
+                    Toast.makeText(MainActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
     }
     @Override
     protected void onDestroy() {

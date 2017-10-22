@@ -8,5 +8,69 @@
         android:layout_height="55dp"
         android:orientation="horizontal"
         android:background="@drawable/shape_color">
+
+        <TextView
+            android:text="购物车"
+            android:textSize="30sp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/epList"
+        android:layout_weight="1"
+        android:childDivider="#000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ExpandableListView>
+    <RelativeLayout
+        android:background="#3300"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <CheckBox
+            android:id="@+id/selectAll"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/check_select"
+            android:text="全选"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/heji"
+            android:layout_toLeftOf="@+id/countAll"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="合计:"/>
+        <TextView
+            android:id="@+id/countAll"
+            android:layout_toLeftOf="@+id/priceAll"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/priceAll"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/settle_accounts"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:drawableLeft="@mipmap/money"
+            android:text="0.00"/>
+        <Button
+            android:id="@+id/settle_accounts"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="结算"
+            android:background="#FD8F00"
+            android:textSize="25sp"/>
+    </RelativeLayout>
 </LinearLayout>

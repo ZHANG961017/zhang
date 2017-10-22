@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/Search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
@@ -40,6 +41,7 @@
                     android:text="搜索"
                     android:textSize="22sp"/>
                 <ImageButton
+                    android:id="@+id/acamera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
