@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    tools:context="com.douya.test.activity.LoginActivity">
+
+    <EditText
+        android:id="@+id/et_loginName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="请输入手机号"
+        android:layout_marginTop="15dp"
+        />
+    <EditText
+        android:id="@+id/et_loginPwd"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="请输入密码"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/et_loginName"/>
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="登录"
+        android:layout_below="@id/et_loginPwd"/>
+    <Button
+        android:id="@+id/bt_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/bt_login"
+        android:layout_below="@id/et_loginPwd"
+        android:layout_marginLeft="30dp"/>
+</RelativeLayout>
