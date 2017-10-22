@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="bwie.com.myshop.activity.Goods_ParticularsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_color">
+        <ImageButton
+            android:id="@+id/getBack"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/left"/>
+        <EditText
+            android:id="@+id/Search"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:hint="搜索"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/find_home"
+            android:textSize="22sp"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/ccamera"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/camera_home"/>
+        <Button
+            android:id="@+id/find"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜 索"
+            android:background="@null"
+            android:textSize="20sp"/>
+        </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/goods"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
