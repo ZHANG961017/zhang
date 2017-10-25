@@ -64,17 +64,11 @@ public abstract class GsonArrayCallback<T> implements Callback {
             //循环遍历把对象添加到集合
             mList.add((T) gson.fromJson(elem, cls));
         }
-
             handler.post(new Runnable() {
                 @Override
                 public void run() {
                     onUi(mList);
-
-
-
                 }
             });
-
-
     }
 }

@@ -71,5 +71,4 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             }
         });
     }
-
 }
