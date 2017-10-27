@@ -50,4 +50,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    compile files('libs/alipaySdk-20170922.jar')
+    //支付宝
+    compile files('libs/alipaySdk-20170725.jar')
 }
