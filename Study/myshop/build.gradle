@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "bwie.com.myshop"
@@ -50,7 +50,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'cn.yipianfengye.android:zxing-library:2.1'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
-    compile files('libs/alipaySdk-20170922.jar')
     //支付宝
-    compile files('libs/alipaySdk-20170725.jar')
+    compile files('libs/alipaySdk-20170922.jar')
 }
