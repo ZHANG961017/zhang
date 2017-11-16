@@ -6,7 +6,7 @@ package bwie.com.myshop.utils;
 
 public class OptionUtil{
 
-    public static final String IP="http://169.254.110.146/mobile/index.php?act=";//主体
+    public static final String IP="http://169.254.131.247/mobile/index.php?act=";//主体
     public static final String CLIENT="android";                                  //client常量
     public static final String LOGIN=IP+"login";                                  //登录
     public static final String REGISTER=IP+"login&op=register";                  //注册
