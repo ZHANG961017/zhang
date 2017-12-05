@@ -1,1 +1,1 @@
-include ':app', ':myshop', ':exam_customview'
+include ':app', ':myshop', ':exam_customview', ':threadstudy'
