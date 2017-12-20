@@ -1,6 +1,9 @@
 package bwie.com.myshop.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.nfc.NfcAdapter;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,7 +71,6 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> 
                     .placeholder(R.mipmap.ic_launcher)
                     .into(holder.goodsIv);
         }
-
     }
     @Override
     public int getItemCount() {
@@ -102,4 +104,13 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> 
             goodsPrice = itemView.findViewById(R.id.goodsPrice);
         }
     }
+   /* @TargetApi(Build.VERSION_CODES.N)
+    public void remove(){
+        NfcAdapter.OnTagRemovedListener removedListener = new NfcAdapter.OnTagRemovedListener() {
+            @Override
+            public void onTagRemoved() {
+                remove();
+            }
+        };
+    }*/
 }
